@@ -2,7 +2,11 @@ const Game = require("../models/Game");
 
 module.exports = {
 	getIndex: (req, res) => {
-		res.redirect("/api/doc");
+		if (process.env.NODE_ENV !== "production") {
+			res.redirect("http://localhost:3000/api/doc");
+		} else {
+			res.redirect("https://min-to-win.netlify.app/api/doc");
+		}
 	},
 	getGames: async (req, res) => {
 		try {

@@ -1,5 +1,6 @@
 const express = require("express");
 const serverless = require("serverless-http");
+const path = require("path");
 
 require("dotenv").config({ path: __dirname + "/.env" });
 
@@ -12,8 +13,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/api", apiRoutes);
-
-console.log(process.env.MONGO_URI);
+app.use("/", apiRoutes);
 
 module.exports.handler = serverless(app);
