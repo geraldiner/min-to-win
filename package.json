@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:rest": "run-p watch:rest && netlify dev",
-    "watch:rest": "onchange ./server/src-rest/**/*.js -- npm run bundle:rest",
-    "bundle:rest": "cpx server/src-rest/**/* functions/",
-    "build": "run-p build:server && build:client",
-    "build:server": "cd functions && npm install",
+    "start:rest": "run-p rest:start:*",
+    "rest:start:watch": "onchange ./server/src-rest/**/*.js -- npm run bundle:rest",
+    "rest:start:dev": "netlify dev",
+    "rest:bundle": "cpx server/src-rest/**/* functions/",
+    "build": "run-p build:*",
+    "build:functions": "cd functions && npm install",
     "build:client": "cd client && npm run build"
   },
   "repository": {
