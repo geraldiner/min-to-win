@@ -17,8 +17,28 @@ module.exports = {
 		}
 	},
 	getGame: async (req, res) => {
+		const gameId = parseInt(req.params.gameId);
+		console.log(gameId, typeof gameId);
 		try {
-		} catch (error) {}
+			const game = await Game.findOne({ gameId });
+			if (game) {
+				res.status(200).json({
+					success: true,
+					data: game,
+				});
+			} else {
+				res.status(200).json({
+					success: true,
+					data: `No game with ${gameId} found.`,
+				});
+			}
+		} catch (error) {
+			res.status(500).json({
+				success: false,
+				message: "Something went wrong",
+				error,
+			});
+		}
 	},
 	postGames: async (req, res) => {
 		const { title, description, materials } = req.body;

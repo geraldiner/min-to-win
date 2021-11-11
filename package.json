@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:rest": "run-p rest:start:*",
-    "rest:start:watch": "onchange ./server/src-rest/**/*.js -- npm run rest:bundle",
+    "rest:start:watch": "onchange ./server/src-rest/**/* -- npm run rest:bundle",
     "rest:start:dev": "netlify dev",
     "rest:start:client": "cd client && npm run start",
     "rest:bundle": "cpx server/src-rest/**/* functions/",

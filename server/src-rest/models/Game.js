@@ -22,6 +22,9 @@ const GameSchema = mongoose.Schema({
 		type: String,
 		trim: true,
 	},
+	gameId: {
+		type: Number,
+	},
 });
 
 const Game = mongoose.model("Game", GameSchema);
