@@ -1,13 +1,6 @@
 const Game = require("../models/Game");
 
 module.exports = {
-	getIndex: (req, res) => {
-		if (process.env.NODE_ENV !== "development") {
-			res.redirect("https://min-to-win.netlify.app/api/doc");
-		} else {
-			res.redirect("http://localhost:3000/api/doc");
-		}
-	},
 	getGames: async (req, res) => {
 		try {
 			const games = await Game.find();
@@ -22,6 +15,10 @@ module.exports = {
 				error,
 			});
 		}
+	},
+	getGame: async (req, res) => {
+		try {
+		} catch (error) {}
 	},
 	postGames: async (req, res) => {
 		const { title, description, materials } = req.body;

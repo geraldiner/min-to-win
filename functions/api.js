@@ -10,9 +10,10 @@ connectDB();
 const apiRoutes = require("./routes/api");
 
 const app = express();
+app.use(express.static(path.join(__dirname + "/build")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/", apiRoutes);
+app.use("/api-v1", apiRoutes);
 
 module.exports.handler = serverless(app);
