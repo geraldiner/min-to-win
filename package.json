@@ -8,6 +8,7 @@
     "watch:rest": "onchange ./server/src-rest/**/*.js -- npm run bundle:rest",
     "bundle:rest": "cpx server/src-rest/**/* functions/",
     "build": "run-p bundle:rest && build:client",
+    "build:server": "cd functions && npm install",
     "build:client": "cd client && npm run build"
   },
   "repository": {
