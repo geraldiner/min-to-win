@@ -1,10 +1,20 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+/* Pages */
+import ApiDoc from "./pages/ApiDoc";
+import Landing from "./pages/Landing";
 
 const App = () => {
 	return (
-		<div>
-			<h1>Hello World!</h1>
-		</div>
+		<BrowserRouter>
+			<div className="app">
+				<Routes>
+					<Route exact path="/" element={<Landing />} />
+					<Route exact path="/api" element={<ApiDoc />} />
+				</Routes>
+			</div>
+		</BrowserRouter>
 	);
 };
 
