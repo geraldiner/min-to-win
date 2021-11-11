@@ -2,9 +2,7 @@ const Game = require("../models/Game");
 
 module.exports = {
 	getIndex: (req, res) => {
-		res.status(200).json({
-			success: true,
-		});
+		res.redirect("/api/doc");
 	},
 	getGames: async (req, res) => {
 		try {
