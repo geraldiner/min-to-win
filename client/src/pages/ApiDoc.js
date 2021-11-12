@@ -6,8 +6,8 @@ const ApiDoc = () => {
 			<h1>REST API Documentation</h1>
 			<p>
 				The main endpoint is:{" "}
-				<a href="https://min-to-win.netlify/api-v1" target="_blank" rel="noopener noreferrer">
-					https://min-to-win.netlify/api-v1
+				<a href="https://min-to-win.netlify.app/api-v1" target="_blank" rel="noopener noreferrer">
+					https://min-to-win.netlify.app/api-v1
 				</a>
 			</p>
 			<h2>Data Response</h2>

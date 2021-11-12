@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Landing = () => {
+	console.log(process.env);
+	console.log(process.env.REACT_APP_API_ENDPOINT);
 	return (
 		<div>
 			<h1>Landing Page</h1>
@@ -14,7 +16,7 @@ const Landing = () => {
 			</p>
 			<p>
 				But for now, only the API is set up at{" "}
-				<a href="https://min-to-win.netlify.app/api-v1" target="_blank" rel="noopener noreferrer">
+				<a href={`${process.env.REACT_APP_API_ENDPOINT}`} target="_blank" rel="noopener noreferrer">
 					https://min-to-win.netlify.app/api-v1
 				</a>
 				. Be sure to <Link to="/api/doc">read the docs</Link> first.

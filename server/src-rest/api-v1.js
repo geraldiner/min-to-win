@@ -10,7 +10,8 @@ connectDB();
 const apiRoutes = require("./routes/api");
 
 const app = express();
-app.use(express.static(path.join(__dirname + "/build")));
+app.use(express.static(path.join(__dirname + "/public")));
+console.log(path.join(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
