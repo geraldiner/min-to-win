@@ -14,8 +14,8 @@ const Landing = () => {
 			</p>
 			<p>
 				But for now, only the API is set up at{" "}
-				<a href="https://min-to-win.netlify/api-v1" target="_blank" rel="noopener noreferrer">
-					https://min-to-win.netlify/api-v1
+				<a href="https://min-to-win.netlify.app/api-v1" target="_blank" rel="noopener noreferrer">
+					https://min-to-win.netlify.app/api-v1
 				</a>
 				. Be sure to <Link to="/api/doc">read the docs</Link> first.
 			</p>
