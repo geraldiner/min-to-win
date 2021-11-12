@@ -18,6 +18,11 @@ const GameSchema = mongoose.Schema({
 			trim: true,
 		},
 	],
+	type: {
+		type: String,
+		required: true,
+		trim: true,
+	},
 	demoVideo: {
 		type: String,
 		trim: true,

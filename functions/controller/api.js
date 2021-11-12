@@ -2,8 +2,9 @@ const Game = require("../models/Game");
 
 module.exports = {
 	getGames: async (req, res) => {
+		const limit = parseInt(req.query.limit) || 20;
 		try {
-			const games = await Game.find();
+			const games = await Game.find().limit(limit);
 			res.status(200).json({
 				success: true,
 				data: games,
@@ -18,7 +19,6 @@ module.exports = {
 	},
 	getGame: async (req, res) => {
 		const gameId = parseInt(req.params.gameId);
-		console.log(gameId, typeof gameId);
 		try {
 			const game = await Game.findOne({ gameId });
 			if (game) {
@@ -41,12 +41,13 @@ module.exports = {
 		}
 	},
 	postGames: async (req, res) => {
-		const { title, description, materials } = req.body;
+		const { title, description, materials, type } = req.body;
 		try {
 			const game = await Game.create({
 				title,
 				description,
 				materials,
+				type,
 			});
 			res.status(200).json({
 				success: true,
