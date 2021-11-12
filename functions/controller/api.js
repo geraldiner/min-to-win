@@ -29,7 +29,7 @@ module.exports = {
 			} else {
 				res.status(200).json({
 					success: true,
-					data: `No game with ${gameId} found.`,
+					data: `No game with id=${gameId} found.`,
 				});
 			}
 		} catch (error) {
