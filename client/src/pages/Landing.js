@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+import GameList from "../components/GameList";
 
 const Landing = () => {
-	console.log(process.env);
-	console.log(process.env.REACT_APP_API_ENDPOINT);
+	const [gameList, setGameList] = useState([]);
+
+	useEffect(() => {
+		const fetchGames = async () => {
+			const res = await axios.get(process.env.REACT_APP_API_ENDPOINT);
+			console.log(res);
+			setGameList(res.data);
+		};
+		fetchGames();
+	}, []);
+
 	return (
 		<div>
 			<h1>Landing Page</h1>
@@ -32,6 +44,9 @@ const Landing = () => {
 					https://geraldiner.com
 				</a>
 			</p>
+			<div className="games-list">
+				<GameList games={gameList} />
+			</div>
 		</div>
 	);
 };
