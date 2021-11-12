@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import { Container } from "@mui/material";
+
 /* Components */
 import Hero from "../components/Hero";
 import GameList from "../components/GameList";
@@ -19,9 +21,9 @@ const Landing = () => {
 	return (
 		<main>
 			<Hero />
-			<div className="games-list">
+			<Container>
 				<GameList games={gameList} />
-			</div>
+			</Container>
 		</main>
 	);
 };

@@ -26,25 +26,18 @@ const Hero = () => {
 					</Typography>
 					<Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
 						<Button variant="contained">
-							<MLink href="#games">Browse Games</MLink>
+							<MLink style={{ textDecoration: "none", color: "white" }} href="#games">
+								Browse Games
+							</MLink>
 						</Button>
 						<Button variant="outlined">
-							<Link to="/api/doc">View API</Link>
+							<Link style={{ textDecoration: "none", color: "initial" }} to="/api/doc">
+								View API
+							</Link>
 						</Button>
 					</Stack>
 				</Container>
 			</Box>
-
-			<p>
-				Built by:{" "}
-				<a href="https://twitter.com/geraldinedesu" target="_blank" rel="noopener noreferrer">
-					@geraldiner
-				</a>{" "}
-				More projects at:{" "}
-				<a href="https://geraldiner.com" target="_blank" rel="noopener noreferrer">
-					https://geraldiner.com
-				</a>
-			</p>
 		</div>
 	);
 };
