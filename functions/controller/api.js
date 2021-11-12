@@ -1,6 +1,12 @@
 const Game = require("../models/Game");
 
 module.exports = {
+	getIndex: (req, res) => {
+		res.status(200).json({
+			success: true,
+			message: "For more info, see: https://min-to-win.netlify.app/",
+		});
+	},
 	getGames: async (req, res) => {
 		const limit = parseInt(req.query.limit) || 20;
 		try {
