@@ -47,13 +47,15 @@ module.exports = {
 		}
 	},
 	postGames: async (req, res) => {
-		const { title, description, materials, type } = req.body;
+		const { title, description, materials, type, demoVideo, coverImg } = req.body;
 		try {
 			const game = await Game.create({
 				title,
 				description,
 				materials,
 				type,
+				demoVideo,
+				coverImg,
 			});
 			res.status(200).json({
 				success: true,
