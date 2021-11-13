@@ -12,6 +12,7 @@ const Landing = () => {
 
 	useEffect(() => {
 		const fetchGames = async () => {
+			console.log(process.env.REACT_APP_API_ENDPOINT);
 			const res = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/games`);
 			setGameList(res.data.data);
 		};
