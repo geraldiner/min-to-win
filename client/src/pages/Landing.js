@@ -5,6 +5,7 @@ import { Container } from "@mui/material";
 
 /* Components */
 import Hero from "../components/Hero";
+import SearchBar from "../components/SearchBar";
 import GameList from "../components/GameList";
 
 const Landing = () => {
@@ -12,7 +13,6 @@ const Landing = () => {
 
 	useEffect(() => {
 		const fetchGames = async () => {
-			console.log(process.env.REACT_APP_API_ENDPOINT);
 			const res = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/games`);
 			setGameList(res.data.data);
 		};
@@ -23,6 +23,8 @@ const Landing = () => {
 		<main>
 			<Hero />
 			<Container>
+				<h1 id="games">The Games</h1>
+				<SearchBar />
 				<GameList games={gameList} />
 			</Container>
 		</main>
