@@ -16,6 +16,7 @@ const App = () => {
 				<Navbar />
 				<Routes>
 					<Route exact path="/" element={<Landing />} />
+					<Route path="/search?query=:query" element={<Landing />} />
 					<Route exact path="/api/doc" element={<ApiDoc />} />
 				</Routes>
 				<Footer />

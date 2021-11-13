@@ -53,7 +53,7 @@ const GameCard = ({ game }) => {
 						<Typography component="div" variant="h4" sx={{ my: 2 }}>
 							{game.title}
 						</Typography>
-						<Typography component="inline" variant="p" color="white" bgcolor={getTypeColor(game.type)} sx={{ my: 2, p: 1, borderRadius: 2 }}>
+						<Typography variant="span" color="white" bgcolor={getTypeColor(game.type)} sx={{ my: 2, p: 1, borderRadius: 2 }}>
 							{game.type}
 						</Typography>
 						<Typography variant="p" color="text.primary" component="div" sx={{ my: 2 }}>
@@ -62,7 +62,9 @@ const GameCard = ({ game }) => {
 					</CardContent>
 					{game.demoVideo && (
 						<CardActions sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
-							<Button onClick={handleOpen}>View Demo</Button>
+							<Button size="large" onClick={handleOpen}>
+								View Demo
+							</Button>
 							<Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
 								<Box sx={style}>
 									<Typography id="modal-modal-title" variant="h6" component="h2">

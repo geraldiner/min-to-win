@@ -15,7 +15,9 @@ module.exports = {
 			const prevOffset = offset - limit < 0 ? 0 : offset - limit;
 			const prevLimit = limit > limit - offset ? offset : limit;
 			const nextOffset = offset + limit;
-			const nextLimit = limit;
+			const nextLimit = offset + limit > games.length ? games.length - limit : limit;
+			console.log({ prevOffset, prevLimit, nextOffset, nextLimit });
+
 			res.status(200).json({
 				success: true,
 				data: {
