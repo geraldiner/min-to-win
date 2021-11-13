@@ -67,16 +67,23 @@ const Landing = () => {
 		setLoading(true);
 		let cancel;
 		const fetchGames = async () => {
+			console.log(currentPageUrl);
 			const res = await axios.get(currentPageUrl, {
 				cancelToken: new axios.CancelToken(c => (cancel = c)),
 			});
 			setNextPageUrl(res.data.data.next);
 			setPrevPageUrl(res.data.data.prev);
+			console.log({ searchQuery, gameType });
 			if (searchQuery !== "" && gameType !== "") {
-				setGameList(res.data.data.games.filter(g => g.title.includes(searchQuery) && g.type.includes(gameType)));
+				console.log("search & gameType");
+				setGameList(res.data.data.games.filter(g => g.title.toLowerCase().includes(searchQuery) && g.type.includes(gameType)));
 			} else if (searchQuery !== "") {
-				setGameList(res.data.data.games.filter(g => g.title.includes(searchQuery)));
+				console.log("search");
+
+				setGameList(res.data.data.games.filter(g => g.title.toLowerCase().includes(searchQuery)));
 			} else if (gameType) {
+				console.log("gameType");
+
 				setGameList(res.data.data.games.filter(g => g.type.includes(gameType)));
 			} else {
 				setGameList(res.data.data.games);
@@ -95,9 +102,13 @@ const Landing = () => {
 		setCurrentPageUrl(prevPageUrl);
 	};
 
-	const handleChange = e => {
-		setCurrentPageUrl(`${url}/games`);
+	const handleGameTypeChange = e => {
+		setCurrentPageUrl(`${url}/games?limit=999`);
 		setGameType(e.target.value);
+	};
+	const handleSearchQueryChange = e => {
+		setCurrentPageUrl(`${url}/games?limit=999`);
+		setSearchQuery(e.target.value.toLowerCase());
 	};
 
 	return (
@@ -114,17 +125,13 @@ const Landing = () => {
 									<SearchIconWrapper>
 										<SearchIcon />
 									</SearchIconWrapper>
-									<StyledInputBase
-										placeholder="Search for titles"
-										inputProps={{ "aria-label": "search" }}
-										onChange={e => setSearchQuery(e.target.value)}
-									/>
+									<StyledInputBase placeholder="Search for titles" inputProps={{ "aria-label": "search" }} onChange={handleSearchQueryChange} />
 								</Search>
 							</Box>
 							<Box sx={{ width: "50%" }}>
 								<FormControl fullWidth>
 									<InputLabel id="gameType-select-label">Game Type</InputLabel>
-									<Select labelId="gameType-select-label" id="gameType-select" value={gameType} label="Game Type" onChange={handleChange}>
+									<Select labelId="gameType-select-label" id="gameType-select" value={gameType} label="Game Type" onChange={handleGameTypeChange}>
 										<MenuItem value={""}>All Games</MenuItem>
 										<MenuItem value={"Head to Head"}>Head to Head</MenuItem>
 										<MenuItem value={"2 vs 2"}>2 vs 2</MenuItem>
