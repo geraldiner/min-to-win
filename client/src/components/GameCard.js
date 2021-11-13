@@ -23,23 +23,23 @@ const GameCard = ({ game }) => {
 	const getTypeColor = type => {
 		switch (type) {
 			case "Head to Head":
-				return "primary.main";
-				// eslint-disable-next-line no-unreachable
-				break;
-			case "2 vs 2":
 				return "secondary.main";
 				// eslint-disable-next-line no-unreachable
 				break;
-			case "Multiplayer":
+			case "2 vs 2":
 				return "info.main";
 				// eslint-disable-next-line no-unreachable
 				break;
-			case "Relay":
+			case "Multiplayer":
 				return "success.main";
 				// eslint-disable-next-line no-unreachable
 				break;
+			case "Relay":
+				return "warning.main";
+				// eslint-disable-next-line no-unreachable
+				break;
 			default:
-				return "text.secondary";
+				return "error.main";
 				// eslint-disable-next-line no-unreachable
 				break;
 		}

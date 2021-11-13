@@ -10,7 +10,7 @@ const GameList = ({ games }) => {
 			<Grid container spacing={4}>
 				{games.map(g => {
 					return (
-						<Grid item key={g.gameId} xs={12} sm={8} md={6}>
+						<Grid item key={g.gameId} xs={12} sm={6} md={6}>
 							<GameCard key={g.gameId} game={g} />
 						</Grid>
 					);

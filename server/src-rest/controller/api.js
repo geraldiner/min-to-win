@@ -20,7 +20,7 @@ module.exports = {
 				success: true,
 				data: {
 					games,
-					prev: `${process.env.API_ENDPOINT}/games?offset=${prevOffset}&limit=${prevLimit}`,
+					prev: prevOffset <= 0 ? null : `${process.env.API_ENDPOINT}/games?offset=${prevOffset}&limit=${prevLimit}`,
 					next: `${process.env.API_ENDPOINT}/games?offset=${nextOffset}&limit=${nextLimit}`,
 				},
 			});
