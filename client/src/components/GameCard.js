@@ -8,6 +8,7 @@ const style = {
 	top: "50%",
 	left: "50%",
 	transform: "translate(-50%, -50%)",
+	minWidth: "480px",
 	width: "max-content",
 	bgcolor: "background.paper",
 	border: "2px solid #000",
@@ -51,13 +52,7 @@ const GameCard = ({ game }) => {
 										{game.title}
 									</Typography>
 									<Box>
-										<ReactPlayer
-											url={
-												process.env.NODE_ENV === "development"
-													? `https://www.youtube.com/watch?v=${getVideoId(game.demoVideo)}&showinfo=0&enablejsapi=1&origin=http://localhost:3000`
-													: `https://www.youtube.com/watch?v=${getVideoId(game.demoVideo)}`
-											}
-										/>
+										<ReactPlayer controls="true" url={`https://www.youtube.com/watch?v=${getVideoId(game.demoVideo)}&controls=1`} />
 									</Box>
 								</Box>
 							</Modal>
