@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Box } from "@mui/material";
+import { Link as MLink } from "@mui/material";
 
 const Navbar = () => {
 	return (
@@ -9,9 +10,9 @@ const Navbar = () => {
 				<Toolbar sx={{ display: "flex", justifyContent: "space-evenly" }}>
 					<div className="left" style={{ width: "50%" }}>
 						<Typography variant="h6" color="inherit" noWrap>
-							<Link style={{ textDecoration: "none", color: "white" }} to="/">
+							<MLink style={{ textDecoration: "none", color: "white" }} href="/">
 								MinToWin
-							</Link>
+							</MLink>
 						</Typography>
 					</div>
 					<div className="right">
