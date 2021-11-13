@@ -22,13 +22,15 @@ const GameCard = ({ game }) => {
 	const getVideoId = videoLink => {
 		return videoLink.slice(-11);
 	};
+	const setCoverImg = videoLink => {
+		return `https://i.ytimg.com/vi/${getVideoId(videoLink)}/hqdefault.jpg`;
+	};
 	return (
 		<div>
-			<Card sx={{ display: "flex", my: 3, p: 3 }}>
+			<Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
 				<CardMedia
-					sx={{ width: 151, minWidth: "33%" }}
 					component="img"
-					image={game.coverImg ? game.coverImg : "/assets/img/mintowin-default-cover.png"}
+					image={setCoverImg(game.demoVideo) ? setCoverImg(game.demoVideo) : "/assets/img/mintowin-default-cover.png"}
 					alt={`Cover Image for ${game.title}`}
 				/>
 				<Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -52,7 +54,7 @@ const GameCard = ({ game }) => {
 										{game.title}
 									</Typography>
 									<Box>
-										<ReactPlayer controls="true" url={`https://www.youtube.com/watch?v=${getVideoId(game.demoVideo)}&controls=1`} />
+										<ReactPlayer controls={true} url={`https://www.youtube.com/watch?v=${getVideoId(game.demoVideo)}&controls=1`} />
 									</Box>
 								</Box>
 							</Modal>
