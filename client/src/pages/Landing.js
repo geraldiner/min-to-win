@@ -10,17 +10,20 @@ import GameList from "../components/GameList";
 
 const Landing = () => {
 	const [gameList, setGameList] = useState([]);
-	const [currentPageUrl, setCurrentPageUrl] = useState(`${process.env.REACT_APP_API_ENDPOINT}/games`);
-	const [nextPageUrl, setNextPageUrl] = useState("");
-	const [prevPageUrl, setPrevPageUrl] = useState("");
+	// const [currentPageUrl, setCurrentPageUrl] = useState(`${process.env.REACT_APP_API_ENDPOINT}/games`);
+	// const [nextPageUrl, setNextPageUrl] = useState("");
+	// const [prevPageUrl, setPrevPageUrl] = useState("");
 
 	useEffect(() => {
 		const fetchGames = async () => {
 			const res = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/games`);
-			setGameList(res.data.data);
+			// setNextPageUrl(res.data.next);
+			// setPrevPageUrl(res.data.prev);
+			console.log(res);
+			setGameList(res.data.games);
 		};
 		fetchGames();
-	}, [currentPageUrl]);
+	}, []);
 
 	return (
 		<main>
