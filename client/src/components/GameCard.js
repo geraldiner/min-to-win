@@ -24,18 +24,23 @@ const GameCard = ({ game }) => {
 		switch (type) {
 			case "Head to Head":
 				return "primary.main";
+				// eslint-disable-next-line no-unreachable
 				break;
 			case "2 vs 2":
 				return "secondary.main";
+				// eslint-disable-next-line no-unreachable
 				break;
 			case "Multiplayer":
 				return "info.main";
+				// eslint-disable-next-line no-unreachable
 				break;
 			case "Relay":
 				return "success.main";
+				// eslint-disable-next-line no-unreachable
 				break;
 			default:
 				return "text.secondary";
+				// eslint-disable-next-line no-unreachable
 				break;
 		}
 	};
