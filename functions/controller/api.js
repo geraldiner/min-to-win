@@ -8,7 +8,7 @@ module.exports = {
 		});
 	},
 	getGames: async (req, res) => {
-		const limit = parseInt(req.query.limit) || 20;
+		const limit = parseInt(req.query.limit) || 10;
 		try {
 			const games = await Game.find().limit(limit);
 			res.status(200).json({

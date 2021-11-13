@@ -12,12 +12,11 @@ const apiRoutes = require("./routes/api");
 
 const app = express();
 app.use(express.static(path.join(__dirname + "/public")));
-console.log(path.join(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
 	cors({
-		origin: "http://localhost:3000",
+		origin: ["http://localhost:3000", "http://localhost:8888"],
 	}),
 );
 

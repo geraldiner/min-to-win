@@ -19,26 +19,36 @@ const GameCard = ({ game }) => {
 	const [open, setOpen] = useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
-	const getVideoId = videoLink => {
-		return videoLink.slice(-11);
-	};
-	const setCoverImg = videoLink => {
-		return `https://i.ytimg.com/vi/${getVideoId(videoLink)}/hqdefault.jpg`;
+
+	const getTypeColor = type => {
+		switch (type) {
+			case "Head to Head":
+				return "primary.main";
+				break;
+			case "2 vs 2":
+				return "secondary.main";
+				break;
+			case "Multiplayer":
+				return "info.main";
+				break;
+			case "Relay":
+				return "success.main";
+				break;
+			default:
+				return "text.secondary";
+				break;
+		}
 	};
 	return (
 		<div>
 			<Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
-				<CardMedia
-					component="img"
-					image={setCoverImg(game.demoVideo) ? setCoverImg(game.demoVideo) : "/assets/img/mintowin-default-cover.png"}
-					alt={`Cover Image for ${game.title}`}
-				/>
+				<CardMedia component="img" image={game.coverImg} alt={`Cover Image for ${game.title}`} />
 				<Box sx={{ display: "flex", flexDirection: "column" }}>
 					<CardContent sx={{ flex: "1 0 auto" }}>
-						<Typography component="div" variant="h3" sx={{ my: 2 }}>
+						<Typography component="div" variant="h4" sx={{ my: 2 }}>
 							{game.title}
 						</Typography>
-						<Typography component="div" variant="h5" color="text.secondary" sx={{ my: 2 }}>
+						<Typography component="inline" variant="p" color="white" bgcolor={getTypeColor(game.type)} sx={{ my: 2, p: 1, borderRadius: 2 }}>
 							{game.type}
 						</Typography>
 						<Typography variant="p" color="text.primary" component="div" sx={{ my: 2 }}>
@@ -54,7 +64,7 @@ const GameCard = ({ game }) => {
 										{game.title}
 									</Typography>
 									<Box>
-										<ReactPlayer controls={true} url={`https://www.youtube.com/watch?v=${getVideoId(game.demoVideo)}&controls=1`} />
+										<ReactPlayer controls={true} url={game.demoVideo} />
 									</Box>
 								</Box>
 							</Modal>

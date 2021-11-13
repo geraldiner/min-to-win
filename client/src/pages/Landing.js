@@ -10,6 +10,7 @@ import GameList from "../components/GameList";
 
 const Landing = () => {
 	const [gameList, setGameList] = useState([]);
+	const [currentPageUrl, setCurrentPageUrl] = useState(`${process.env.REACT_APP_API_ENDPOINT}/games`);
 
 	useEffect(() => {
 		const fetchGames = async () => {
