@@ -4,7 +4,8 @@ import { Container, Grid } from "@mui/material";
 
 import GameCard from "./GameCard";
 
-const GameList = ({ games }) => {
+const GameList = ({ games, loading }) => {
+	if (loading) return <h2>Loading...</h2>;
 	return (
 		<Container>
 			<Grid container spacing={4}>

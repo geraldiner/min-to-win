@@ -19,6 +19,9 @@ const GameCard = ({ game }) => {
 	const [open, setOpen] = useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
+	const handleClick = () => {
+		console.log("click");
+	};
 
 	const getTypeColor = type => {
 		switch (type) {
@@ -56,14 +59,14 @@ const GameCard = ({ game }) => {
 						<Typography variant="span" color="white" bgcolor={getTypeColor(game.type)} sx={{ my: 2, p: 1, borderRadius: 2 }}>
 							{game.type}
 						</Typography>
-						<Typography variant="p" color="text.primary" component="div" sx={{ my: 2 }}>
-							{game.description}
-						</Typography>
 					</CardContent>
 					{game.demoVideo && (
 						<CardActions sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
 							<Button size="large" onClick={handleOpen}>
 								View Demo
+							</Button>
+							<Button size="large" onClick={handleClick}>
+								Learn More
 							</Button>
 							<Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
 								<Box sx={style}>

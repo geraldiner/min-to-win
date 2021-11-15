@@ -8,21 +8,13 @@ module.exports = {
 		});
 	},
 	getGames: async (req, res) => {
-		const offset = parseInt(req.query.offset) || 0;
-		const limit = parseInt(req.query.limit) || 10;
 		try {
-			const games = await Game.find().skip(offset).limit(limit);
-			const prevOffset = offset - limit < 0 ? 0 : offset - limit;
-			const prevLimit = limit > limit - offset ? offset : limit;
-			const nextOffset = offset + limit;
-			const nextLimit = offset + limit > games.length ? games.length - limit : limit;
+			const games = await Game.find().sort({ gameId: 1 });
 
 			res.status(200).json({
 				success: true,
 				data: {
 					games,
-					prev: prevOffset <= 0 ? null : `${process.env.API_ENDPOINT}/games?offset=${prevOffset}&limit=${prevLimit}`,
-					next: `${process.env.API_ENDPOINT}/games?offset=${nextOffset}&limit=${nextLimit}`,
 				},
 			});
 		} catch (error) {

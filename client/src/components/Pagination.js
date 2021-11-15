@@ -1,17 +1,16 @@
 import React from "react";
-import { Container, Button } from "@mui/material";
+import { Container, Stack, Pagination as MPagination } from "@mui/material";
 
-const Pagination = ({ goToNextPage, goToPrevPage }) => {
+const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
+	const pageNumbers = [];
+	for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+		pageNumbers.push(i);
+	}
 	return (
 		<Container sx={{ display: "flex", justifyContent: "center", my: 4 }}>
-			{goToPrevPage && (
-				<Button sx={{ mx: 2 }} variant="contained" color="primary" size="large" onClick={goToPrevPage}>
-					Previous
-				</Button>
-			)}
-			<Button sx={{ mx: 2 }} variant="contained" color="primary" size="large" onClick={goToNextPage}>
-				Next
-			</Button>
+			<Stack spacing={2}>
+				<MPagination count={pageNumbers.length} color="primary" onChange={(event, value) => paginate(value)}></MPagination>
+			</Stack>
 		</Container>
 	);
 };
