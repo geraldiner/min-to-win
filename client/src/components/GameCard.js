@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ReactPlayer from "react-player/youtube";
 
 import { Box, Card, CardMedia, CardContent, CardActions, Button, Typography, Modal } from "@mui/material";
+
+import getTypeColor from "../utils/getTypeColor";
 
 const style = {
 	position: "absolute",
@@ -17,36 +20,14 @@ const style = {
 
 const GameCard = ({ game }) => {
 	const [open, setOpen] = useState(false);
+	const navigate = useNavigate();
+
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
-	const handleClick = () => {
-		console.log("click");
+	const handleClick = game => {
+		navigate(`/game/${game.gameId}`, { state: { game } });
 	};
 
-	const getTypeColor = type => {
-		switch (type) {
-			case "Head to Head":
-				return "secondary.main";
-				// eslint-disable-next-line no-unreachable
-				break;
-			case "2 vs 2":
-				return "info.main";
-				// eslint-disable-next-line no-unreachable
-				break;
-			case "Multiplayer":
-				return "success.main";
-				// eslint-disable-next-line no-unreachable
-				break;
-			case "Relay":
-				return "warning.main";
-				// eslint-disable-next-line no-unreachable
-				break;
-			default:
-				return "error.main";
-				// eslint-disable-next-line no-unreachable
-				break;
-		}
-	};
 	return (
 		<div>
 			<Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
@@ -65,7 +46,7 @@ const GameCard = ({ game }) => {
 							<Button size="large" onClick={handleOpen}>
 								View Demo
 							</Button>
-							<Button size="large" onClick={handleClick}>
+							<Button size="large" onClick={() => handleClick(game)}>
 								Learn More
 							</Button>
 							<Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">

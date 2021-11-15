@@ -8,6 +8,7 @@ import Landing from "./pages/Landing";
 /* Components */
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import GameInfo from "./pages/GameInfo";
 
 const App = () => {
 	return (
@@ -16,7 +17,7 @@ const App = () => {
 				<Navbar />
 				<Routes>
 					<Route exact path="/" element={<Landing />} />
-					<Route path="/search?query=:query" element={<Landing />} />
+					<Route exact path="/game/:id" element={<GameInfo />} />
 					<Route exact path="/api/doc" element={<ApiDoc />} />
 				</Routes>
 				<Footer />
