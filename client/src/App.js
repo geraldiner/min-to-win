@@ -18,7 +18,7 @@ const App = () => {
 				<Routes>
 					<Route exact path="/" element={<Landing />} />
 					<Route exact path="/game/:id" element={<GameInfo />} />
-					<Route exact path="/api/doc" element={<ApiDoc />} />
+					<Route exact path="/api/docs" element={<ApiDoc />} />
 				</Routes>
 				<Footer />
 			</div>

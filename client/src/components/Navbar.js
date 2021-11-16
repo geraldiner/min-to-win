@@ -23,7 +23,7 @@ const Navbar = () => {
 								</Link>
 							</Typography>
 							<Typography sx={{ minWidth: 100 }}>
-								<Link style={{ textDecoration: "none", color: "white" }} to="/api/doc">
+								<Link style={{ textDecoration: "none", color: "white" }} to="/api/docs">
 									API
 								</Link>
 							</Typography>
