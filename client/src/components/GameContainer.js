@@ -17,9 +17,13 @@ const GameContainer = () => {
 	const url = process.env.NODE_ENV !== "development" ? process.env.REACT_APP_API_ENDPOINT : process.env.REACT_APP_API_ENDPOINT_DEV;
 
 	useEffect(() => {
+		let cancel;
+
 		const fetchGames = async () => {
 			setLoading(true);
-			const res = await axios.get(`${url}/games`);
+			const res = await axios.get(`${url}/games`, {
+				cancelToken: new axios.CancelToken(c => (cancel = c)),
+			});
 			const resGames = res.data.data.games;
 			if (searchQuery && gameType) {
 				setGames(resGames.filter(g => g.title.toLowerCase().includes(searchQuery) && g.type.includes(gameType)));
@@ -33,6 +37,7 @@ const GameContainer = () => {
 		};
 		fetchGames();
 		setLoading(false);
+		return () => cancel();
 	}, [searchQuery, gameType, url]);
 
 	const indexOfLast = currentPage * itemsPerPage;
@@ -57,6 +62,9 @@ const GameContainer = () => {
 				<SearchAndFilter gameType={gameType} handleGameTypeChange={handleGameTypeChange} handleSearchQueryChange={handleSearchQueryChange} />
 			</Box>
 			<Box>
+				<h1 id="games" style={{ textAlign: "center" }}>
+					Games
+				</h1>
 				<GameList games={currentGames} loading={loading} />
 			</Box>
 			<Pagination itemsPerPage={itemsPerPage} totalItems={games.length} paginate={paginate} />

@@ -47,7 +47,7 @@ const GameCard = ({ game }) => {
 								View Demo
 							</Button>
 							<Button size="large" onClick={() => handleClick(game)}>
-								Learn More
+								View Details
 							</Button>
 							<Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
 								<Box sx={style}>

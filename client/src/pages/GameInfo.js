@@ -1,8 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ReactPlayer from "react-player/youtube";
 
-import { Container, Box, Typography } from "@mui/material";
+import { Container, Box, Typography, Button } from "@mui/material";
+import { ChevronLeft } from "@mui/icons-material";
 
 import getTypeColor from "../utils/getTypeColor";
 
@@ -13,6 +14,16 @@ const GameInfo = props => {
 	return (
 		<main>
 			<Container sx={{ my: 4, textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "space-evenly" }}>
+				<Box sx={{ textAlign: "left", my: 2 }}>
+					<Typography component="div" variant="p" p={2}>
+						<Button>
+							<Link style={{ display: "flex", alignItems: "center" }} to="/">
+								<ChevronLeft />
+								Back to All Games
+							</Link>
+						</Button>
+					</Typography>
+				</Box>
 				<Box sx={{ my: 2 }}>
 					<Typography component="div" variant="h3" p={2}>
 						{game.title}
