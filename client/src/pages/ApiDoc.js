@@ -2,22 +2,23 @@ import React from "react";
 
 const ApiDoc = () => {
 	return (
-		<div>
-			<h1>REST API Documentation</h1>
-			<p>
-				The main endpoint is:{" "}
-				<a href="https://min-to-win.netlify.app/api-v1" target="_blank" rel="noopener noreferrer">
-					https://min-to-win.netlify.app/api-v1
-				</a>
-			</p>
-			<h2>Data Response</h2>
-			<p>
-				Responses are sent as a JSON object with a <code>"data"</code> field containing the information for a single game, or as an array with a list
-				of games.
-			</p>
-			<h3>Response for single game</h3>
-			<pre style={{ whiteSpace: "pre-wrap" }}>
-				{`{
+		<main>
+			<div>
+				<h1>REST API Documentation</h1>
+				<p>
+					The main endpoint is:{" "}
+					<a href="https://min-to-win.netlify.app/api-v1" target="_blank" rel="noopener noreferrer">
+						https://min-to-win.netlify.app/api-v1
+					</a>
+				</p>
+				<h2>Data Response</h2>
+				<p>
+					Responses are sent as a JSON object with a <code>"data"</code> field containing the information for a single game, or as an array with a
+					list of games.
+				</p>
+				<h3>Response for single game</h3>
+				<pre style={{ whiteSpace: "pre-wrap" }}>
+					{`{
   "success": true,
   "data": {
     "_id": "618dc9f76417fb53ec9459bd",
@@ -31,11 +32,11 @@ const ApiDoc = () => {
     "gameId": 1
   }
 }`}
-			</pre>
+				</pre>
 
-			<h3>Response for list of games</h3>
-			<pre style={{ whiteSpace: "pre-wrap" }}>
-				{`{
+				<h3>Response for list of games</h3>
+				<pre style={{ whiteSpace: "pre-wrap" }}>
+					{`{
     "success": true,
     "data": [
         {
@@ -76,15 +77,16 @@ const ApiDoc = () => {
         }
     ]
 }`}
-			</pre>
-			<h2>Routes</h2>
-			<h3>/games?limit=:limit</h3>
-			<p>Returns a list of games with the given limit (default=20).</p>
-			<h3>/games/:gameId</h3>
-			<p>
-				Returns the game with the specific <code>gameId</code>.
-			</p>
-		</div>
+				</pre>
+				<h2>Routes</h2>
+				<h3>/games?limit=:limit</h3>
+				<p>Returns a list of games with the given limit (default=20).</p>
+				<h3>/games/:gameId</h3>
+				<p>
+					Returns the game with the specific <code>gameId</code>.
+				</p>
+			</div>
+		</main>
 	);
 };
 
