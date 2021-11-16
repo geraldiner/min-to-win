@@ -1,6 +1,6 @@
 import React from "react";
 import { styled, alpha } from "@mui/system";
-import { CssBaseline, InputBase, Box, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { CssBaseline, InputBase, Grid, FormControl, InputLabel, Select, MenuItem, Button, Box } from "@mui/material";
 import { Search as SearchIcon } from "@mui/icons-material";
 
 const Search = styled("div")(({ theme }) => ({
@@ -41,10 +41,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 	},
 }));
 
-const SearchAndFilter = ({ gameType, handleGameTypeChange, handleSearchQueryChange }) => {
+const SearchAndFilter = ({ searchQuery, gameType, handleGameTypeChange, handleSearchQueryChange, handleReset }) => {
 	return (
 		<CssBaseline>
-			<Box sx={{ width: "50%" }}>
+			<Grid item xs={12} md={6}>
 				<Search>
 					<SearchIconWrapper>
 						<SearchIcon />
@@ -52,11 +52,12 @@ const SearchAndFilter = ({ gameType, handleGameTypeChange, handleSearchQueryChan
 					<StyledInputBase
 						placeholder="Search for titles"
 						inputProps={{ "aria-label": "search" }}
+						value={searchQuery}
 						onChange={e => handleSearchQueryChange(e.target.value)}
 					/>
 				</Search>
-			</Box>
-			<Box sx={{ width: "50%" }}>
+			</Grid>
+			<Grid item xs={12} md={6}>
 				<FormControl fullWidth>
 					<InputLabel id="gameType-select-label">Game Type</InputLabel>
 					<Select
@@ -73,6 +74,11 @@ const SearchAndFilter = ({ gameType, handleGameTypeChange, handleSearchQueryChan
 						<MenuItem value={"Multiplayer"}>Multiplayer</MenuItem>
 					</Select>
 				</FormControl>
+			</Grid>
+			<Box sx={{ display: "flex", width: "100%", justifyContent: "center" }}>
+				<Button variant="contained" onClick={() => handleReset()}>
+					Reset
+				</Button>
 			</Box>
 		</CssBaseline>
 	);

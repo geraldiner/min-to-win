@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Box, Container } from "@mui/material";
+import { Grid, Box, Container } from "@mui/material";
 
 import GameList from "../components/GameList";
 import SearchAndFilter from "../components/SearchAndFilter";
@@ -18,9 +18,9 @@ const GameContainer = () => {
 
 	useEffect(() => {
 		let cancel;
+		setLoading(true);
 
 		const fetchGames = async () => {
-			setLoading(true);
 			const res = await axios.get(`${url}/games`, {
 				cancelToken: new axios.CancelToken(c => (cancel = c)),
 			});
@@ -56,11 +56,22 @@ const GameContainer = () => {
 		setGameType(gameTypeValue);
 	};
 
+	const handleReset = () => {
+		setSearchQuery("");
+		setGameType("");
+	};
+
 	return (
 		<Container>
-			<Box sx={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
-				<SearchAndFilter gameType={gameType} handleGameTypeChange={handleGameTypeChange} handleSearchQueryChange={handleSearchQueryChange} />
-			</Box>
+			<Grid container>
+				<SearchAndFilter
+					gameType={gameType}
+					searchQuery={searchQuery}
+					handleGameTypeChange={handleGameTypeChange}
+					handleSearchQueryChange={handleSearchQueryChange}
+					handleReset={handleReset}
+				/>
+			</Grid>
 			<Box>
 				<h1 id="games" style={{ textAlign: "center" }}>
 					Games

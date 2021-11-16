@@ -31,7 +31,7 @@ const Hero = () => {
 							</MLink>
 						</Button>
 						<Button variant="outlined">
-							<Link style={{ textDecoration: "none", color: "initial" }} to="/api/doc">
+							<Link style={{ textDecoration: "none", color: "initial" }} to="/api/docs">
 								View API
 							</Link>
 						</Button>

@@ -51,7 +51,7 @@ module.exports = {
 	},
 	postGame: async (req, res) => {
 		const { title, description, materials, type, demoVideo, coverImg } = req.body;
-		// if (!title || !description || !materials || !type) res.status(405).json({ success: false, data: "Invalid or missing required input" });
+		if (!title || !description || !materials || !type) res.status(405).json({ success: false, data: "Invalid or missing required input" });
 		try {
 			const game = await Game.create({
 				title,
@@ -68,7 +68,7 @@ module.exports = {
 		} catch (error) {
 			res.status(500).json({
 				success: false,
-				message: "Something went wrong. Please hold on.",
+				message: "Internal Server Error",
 				error,
 			});
 		}
