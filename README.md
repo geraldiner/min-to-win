@@ -8,7 +8,7 @@ For Christmas, I use these games as inspiration for the activities we do to cele
 
 **Live site**: https://min-to-win.netlify.app
 
-![Demo of Minute to Win It Games Wiki](https://github.com/geraldiner/min-to-win/blob/main/demo_imgaes/min-to-win-demo.gif)
+![Demo of Minute to Win It Games Wiki](https://github.com/geraldiner/min-to-win/blob/main/demo_images/min-to-win-demo.gif)
 
 **Live API endpoint**: https://min-to-win.netlify.app/api-v1
 
@@ -31,6 +31,8 @@ Finally, the Express server is exported as a serverless function so that it can 
 The frontend is built in React, using the Material UI components for easy styling and the Redoc React Component for the API documentation. The main landing page is the Wiki site. It lists out the games in a grid of Card components.
 
 The frontend makes use of React hooks, including `useState` and `useEffect` to keep track of the changes when a user starts searching for something or filters by the Game Type.
+
+![Demo of Minute to Win It Games Wiki Search and Filter](https://github.com/geraldiner/min-to-win/blob/main/demo_images/min-to-win-search-filter.gif)
 
 Furthermore, since the API is returning all games right now, pagination is handled on the frontend to breakdown the number of games per page and to avoid overwhelming the user with information.
 
