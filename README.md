@@ -14,7 +14,7 @@ For Christmas, I use these games as inspiration for the activities we do to cele
 
 ![Demo of Minute to Win It Games API](https://github.com/geraldiner/min-to-win/blob/main/demo_images/min-to-win-api-demo.gif)
 
-## How It's Made:
+## How It's Made
 
 **Tech used:** HTML, CSS, JavaScript, NodeJS, ExpressJS, ReactJS, Material UI
 
@@ -40,22 +40,22 @@ Furthermore, since the API is returning all games right now, pagination is handl
 
 Originally, I had the API build in a single file. This was mainly for testing purposes, since I was relying heavily on each piece's documentation. When I got an MVP version up and running on Netlify, I then worked on breaking the code in to smaller pieces and modularizing it, e.g. abstracting the routes and controllers from the main app.
 
-## Lessons Learned:
+## Lessons Learned
 
 Initially, the API part of this project was supposed to be made in GraphQL. I knew that for the landing page I didn't want all the information for the games displayed, but on the individual pages I did. GraphQL is supposed to help mitigate that by allowing you to query only for the information you needed. However, it was difficult for me to get it online with Netlify. I think this had to do with the fact that I was using Apollo, and currently v3 doesn't have documentation to allow deployment on Netlify. I saw that v2 did, but after following it, it still didn't work. That's when I decided to convert it to a REST API instead.
 
 I learned a lot about making an API, including setting up endpoints with query parameters. (Though I disabled them for now due to unintended consequences on the pagination on the frontend.) As I continue to do these projects primarily based on reading documentation (as opposed to watching tutorials), my ability and confidence to work through bugs has increased. Can't wait to work on the next thing 😤
 
-<!-- Other Projects Start Here -->
-
 ## Other Projects
 
 Check out other stuff I've worked on:
 
+**Minute To Win It Games API & Wiki**: https://github.com/geraldiner/min-to-win
+
 **Rehabitter:** https://github.com/geraldiner/rehabitter
+
+**Snapchat Clone:** https://github.com/geraldiner/snapchat-clone
 
 **K.K. Radio:** https://github.com/geraldiner/kk-radio
 
 **Interactive Piano:** https://github.com/geraldiner/piano
-
-**Pom Poko Pomodoro:** https://github.com/geraldiner/pom-poko-pomodoro
