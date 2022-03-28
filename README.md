@@ -47,6 +47,7 @@ Initially, the API part of this project was supposed to be made in GraphQL. I kn
 I learned a lot about making an API, including setting up endpoints with query parameters. (Though I disabled them for now due to unintended consequences on the pagination on the frontend.) As I continue to do these projects primarily based on reading documentation (as opposed to watching tutorials), my ability and confidence to work through bugs has increased. Can't wait to work on the next thing 😤
 
 
+
 ## Other Projects
 
 Check out other stuff I've worked on:
@@ -69,4 +70,4 @@ Let's talk about self-taught programming, experience design, (computer science) 
 
 **Email**: hello [at] geraldiner [dot] com
 
-I'm also looking for new Full-Stack or Front-End opportunities, so please reach out if you'd like to work together!
+Currently working full-time at <a target="_blank" href="https://nomnomnow.com">Nom Nom</a>, but always open to any cool, interesting projects!
