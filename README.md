@@ -45,19 +45,6 @@ Originally, I had the API build in a single file. This was mainly for testing pu
 Initially, the API part of this project was supposed to be made in GraphQL. I knew that for the landing page I didn't want all the information for the games displayed, but on the individual pages I did. GraphQL is supposed to help mitigate that by allowing you to query only for the information you needed. However, it was difficult for me to get it online with Netlify. I think this had to do with the fact that I was using Apollo, and currently v3 doesn't have documentation to allow deployment on Netlify. I saw that v2 did, but after following it, it still didn't work. That's when I decided to convert it to a REST API instead.
 
 I learned a lot about making an API, including setting up endpoints with query parameters. (Though I disabled them for now due to unintended consequences on the pagination on the frontend.) As I continue to do these projects primarily based on reading documentation (as opposed to watching tutorials), my ability and confidence to work through bugs has increased. Can't wait to work on the next thing 😤
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 🚀 Other Projects
 
 Check out other stuff I've worked on:
